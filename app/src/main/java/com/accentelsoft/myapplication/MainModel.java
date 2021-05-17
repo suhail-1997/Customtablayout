@@ -6,10 +6,16 @@ package com.accentelsoft.myapplication;
 public class MainModel {
     private String tab_name;
     private String label;
+    private int count;
 
-    public MainModel(String tab_name,String label){
+    public MainModel(String tab_name,String label,int count){
         this.tab_name = tab_name;
+        this.count = count;
         this.label = label;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public void setTab_name(String tab_name) {

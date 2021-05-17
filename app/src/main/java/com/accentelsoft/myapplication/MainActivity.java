@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
         finalAdapterData = new ArrayList<>();
-        finalAdapterData.add(new MainModel("fruits","organic fruits"));
-        finalAdapterData.add(new MainModel("vegetables","organic vegetables"));
-        finalAdapterData.add(new MainModel("pizza","Italian food"));
-        finalAdapterData.add(new MainModel("milkshake","milkshake"));
-        finalAdapterData.add(new MainModel("soft drink","soft drink"));
-        finalAdapterData.add(new MainModel("fast food","burgers"));
-        finalAdapterData.add(new MainModel("south indian","south indian"));
+        finalAdapterData.add(new MainModel("fruits","organic fruits",2));
+        finalAdapterData.add(new MainModel("vegetables","organic vegetables",3));
+        finalAdapterData.add(new MainModel("pizza","Italian food",6));
+        finalAdapterData.add(new MainModel("milkshake","milkshake",0));
+        finalAdapterData.add(new MainModel("soft drink","soft drink",10));
+        finalAdapterData.add(new MainModel("fast food","burgers",4));
+        finalAdapterData.add(new MainModel("south indian","south indian",0));
 
 
 
@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
                     imageView.setImageAlpha(0xFF);
                     TextView textView = view.findViewById(R.id.item_name);
                     textView.setTextColor(getResources().getColor(R.color.black));
+                    TextView count = view.findViewById(R.id.item_count);
+                    count.setBackgroundResource(R.drawable.circular_badge);
                 }
             }
 
@@ -63,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
                     imageView.setImageAlpha(0x3F);
                     TextView textView = view.findViewById(R.id.item_name);
                     textView.setTextColor(getResources().getColor(R.color.gray_1));
+                    TextView count = view.findViewById(R.id.item_count);
+                    count.setBackgroundResource(R.drawable.circular_badge_grey);
+
                 }
 
             }

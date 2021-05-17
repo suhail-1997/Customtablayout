@@ -18,6 +18,16 @@
             android:id="@+id/item_icon"/>
     </RelativeLayout>
     <TextView
+        android:id="@+id/item_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/item_layout"
+        android:background="@drawable/circular_badge"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="8sp"
+        android:textStyle="bold" />
+    <TextView
         android:layout_width="72dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"

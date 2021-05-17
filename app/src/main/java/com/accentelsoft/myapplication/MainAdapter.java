@@ -48,31 +48,40 @@ public class MainAdapter extends FragmentPagerAdapter {
     public View getTabView(int position) {
         // Given you have a custom layout in `res/layout/custom_tab.xml` with a TextView and ImageView
         View v = LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
-        MainModel drugDetail = mainModelList.get(position);
+        MainModel mainModel = mainModelList.get(position);
         TextView tv = (TextView) v.findViewById(R.id.item_name);
-        tv.setText(drugDetail.getLabel());
+        TextView textView = v.findViewById(R.id.item_count);
+        if(mainModel.getCount() != 0){
+            textView.setVisibility(View.VISIBLE);
+            textView.setText(String.valueOf(mainModel.getCount()));
+        }
+        else{
+            textView.setVisibility(View.GONE);
+        }
+
+        tv.setText(mainModel.getLabel());
         ImageView img = (ImageView) v.findViewById(R.id.item_icon);
 
-        if(drugDetail.getTab_name().equalsIgnoreCase("fruits")){
+        if(mainModel.getTab_name().equalsIgnoreCase("fruits")){
             img.setImageResource(R.drawable.fruits);
         }
-        else if(drugDetail.getTab_name().equalsIgnoreCase("vegetables"))
+        else if(mainModel.getTab_name().equalsIgnoreCase("vegetables"))
         {
             img.setImageResource(R.drawable.harvest);
         }
-        else if(drugDetail.getTab_name().equalsIgnoreCase("soft drink"))
+        else if(mainModel.getTab_name().equalsIgnoreCase("soft drink"))
         {
             img.setImageResource(R.drawable.drink);
         }
-        else if(drugDetail.getTab_name().equalsIgnoreCase("milkshake"))
+        else if(mainModel.getTab_name().equalsIgnoreCase("milkshake"))
         {
             img.setImageResource(R.drawable.milkshake);
         }
-        else if(drugDetail.getTab_name().equalsIgnoreCase("fast food"))
+        else if(mainModel.getTab_name().equalsIgnoreCase("fast food"))
         {
             img.setImageResource(R.drawable.fastfood);
         }
-        else if(drugDetail.getTab_name().equalsIgnoreCase("pizza"))
+        else if(mainModel.getTab_name().equalsIgnoreCase("pizza"))
         {
             img.setImageResource(R.drawable.pizza);
         }
@@ -83,6 +92,7 @@ public class MainAdapter extends FragmentPagerAdapter {
         if(position != 0){
             img.setImageAlpha(0x3F);
             tv.setTextColor(context.getResources().getColor(R.color.gray_1));
+            textView.setBackgroundResource(R.drawable.circular_badge_grey);
         }
         return v;
     }
